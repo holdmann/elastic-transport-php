@@ -27,10 +27,22 @@ use Throwable;
 
 class TransportBuilder
 {
-    protected ClientInterface $client;
-    protected NodePoolInterface $nodePool;
-    protected LoggerInterface $logger;
-    protected array $hosts = [];
+    /**
+     * @var \Psr\Http\Client\ClientInterface
+     */
+    protected $client;
+    /**
+     * @var \Elastic\Transport\NodePool\NodePoolInterface
+     */
+    protected $nodePool;
+    /**
+     * @var \Psr\Log\LoggerInterface
+     */
+    protected $logger;
+    /**
+     * @var mixed[]
+     */
+    protected $hosts = [];
 
     final public function __construct()
     {

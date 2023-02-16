@@ -50,19 +50,58 @@ final class Transport implements ClientInterface, HttpAsyncClient
 {
     const VERSION = "8.5.0";
 
-    private ClientInterface $client;
-    private LoggerInterface $logger;
-    private NodePoolInterface $nodePool;
-    private array $headers = [];
-    private string $user;
-    private string $password;
-    private RequestInterface $lastRequest;
-    private ResponseInterface $lastResponse;
-    private string $OSVersion;
-    private int $retries = 0;
-    private HttpAsyncClient $asyncClient;
-    private OnSuccessInterface $onAsyncSuccess;
-    private OnFailureInterface $onAsyncFailure;
+    /**
+     * @var \Psr\Http\Client\ClientInterface
+     */
+    private $client;
+    /**
+     * @var \Psr\Log\LoggerInterface
+     */
+    private $logger;
+    /**
+     * @var \Elastic\Transport\NodePool\NodePoolInterface
+     */
+    private $nodePool;
+    /**
+     * @var mixed[]
+     */
+    private $headers = [];
+    /**
+     * @var string
+     */
+    private $user;
+    /**
+     * @var string
+     */
+    private $password;
+    /**
+     * @var \Psr\Http\Message\RequestInterface
+     */
+    private $lastRequest;
+    /**
+     * @var \Psr\Http\Message\ResponseInterface
+     */
+    private $lastResponse;
+    /**
+     * @var string
+     */
+    private $OSVersion;
+    /**
+     * @var int
+     */
+    private $retries = 0;
+    /**
+     * @var \Http\Client\HttpAsyncClient
+     */
+    private $asyncClient;
+    /**
+     * @var \Elastic\Transport\Async\OnSuccessInterface
+     */
+    private $onAsyncSuccess;
+    /**
+     * @var \Elastic\Transport\Async\OnFailureInterface
+     */
+    private $onAsyncFailure;
 
     public function __construct(
         ClientInterface $client,

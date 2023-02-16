@@ -22,8 +22,14 @@ use function substr;
 
 class Node
 {
-    protected UriInterface $uri;
-    protected bool $alive = true;
+    /**
+     * @var \Psr\Http\Message\UriInterface
+     */
+    protected $uri;
+    /**
+     * @var bool
+     */
+    protected $alive = true;
 
     public function __construct(string $host)
     {

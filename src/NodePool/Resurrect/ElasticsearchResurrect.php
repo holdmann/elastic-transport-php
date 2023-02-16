@@ -23,8 +23,14 @@ use Psr\Http\Message\RequestFactoryInterface;
 
 class ElasticsearchResurrect implements ResurrectInterface
 {
-    protected ClientInterface $client;
-    protected RequestFactoryInterface $requestFactory;
+    /**
+     * @var \Psr\Http\Client\ClientInterface
+     */
+    protected $client;
+    /**
+     * @var \Psr\Http\Message\RequestFactoryInterface
+     */
+    protected $requestFactory;
 
     public function ping(Node $node): bool
     {

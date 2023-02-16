@@ -45,7 +45,10 @@ class SimpleNodePool implements NodePoolInterface
         $this->resurrect = $resurrect;
     }
 
-    public function setHosts(array $hosts): self
+    /**
+     * @return $this
+     */
+    public function setHosts(array $hosts): \Elastic\Transport\NodePool\NodePoolInterface
     {
         $this->nodes = [];
         foreach ($hosts as $host) {

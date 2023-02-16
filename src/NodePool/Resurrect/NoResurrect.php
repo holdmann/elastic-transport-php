@@ -19,7 +19,10 @@ use Psr\Http\Client\ClientInterface;
 
 class NoResurrect implements ResurrectInterface
 {
-    protected ClientInterface $client;
+    /**
+     * @var \Psr\Http\Client\ClientInterface
+     */
+    protected $client;
 
     public function ping(Node $node): bool
     {

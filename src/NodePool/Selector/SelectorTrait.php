@@ -19,7 +19,10 @@ use Elastic\Transport\Exception\InvalidArrayException;
 
 trait SelectorTrait
 {
-    protected array $nodes = [];
+    /**
+     * @var mixed[]
+     */
+    protected $nodes = [];
 
     public function setNodes(array $nodes): void
     {
